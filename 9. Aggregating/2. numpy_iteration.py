@@ -18,11 +18,15 @@ for locitem in loclist:
     if casevalues[j][0]==locitem]
   rowlist.append(sum(cases))
 
-len(rowlist)
-len(loclist)
-rowlist[0:5]
+  # %%
+  len(rowlist)
+  # %%
+  len(loclist)
+  # %%
+  rowlist[0:5]
 casetotals = pd.DataFrame(zip(loclist,rowlist), columns=(['location','casetotals']))
-casetotals.head()
+  # %%
+  casetotals.head()
 
 # sort the land temperatures data and drop rows with missing values for temperature
 ltbrazil = ltbrazil.sort_values(['station','month'])
@@ -52,8 +56,10 @@ for j in range(len(tempvalues)):
   prevtemp = temperature
 
 rowlist.append({'station':prevstation, 'avgtemp':tempcnt/stationcnt, 'stationcnt':stationcnt})
+# %%
 rowlist[0:5]
 
 # create a data frame of land temperature averages
 ltbrazilavgs = pd.DataFrame(rowlist)
+# %%
 ltbrazilavgs.head()

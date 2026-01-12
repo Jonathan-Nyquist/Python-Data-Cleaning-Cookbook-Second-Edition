@@ -5,25 +5,30 @@ import pprint
 import requests
 import msgpack
 
-pd.set_option('display.width', 85)
-pd.set_option('display.max_columns', 8)
+pd.set_option("display.width", 85)
+pd.set_option("display.max_columns", 8)
 
 # load complicated JSON data from an API
-response = requests.get("https://openaccess-api.clevelandart.org/api/artworks/?african_american_artists")
+response = requests.get(
+    "https://openaccess-api.clevelandart.org/api/artworks/?african_american_artists"
+)
 
 camcollections = json.loads(response.text)
-len(camcollections['data'])
-pprint.pprint(camcollections['data'][0])
+# %%
+len(camcollections["data"])
+# %%
+pprint.pprint(camcollections["data"][0])
 
 # save to a json file
-with open("data/camcollections.json","w") as f:
-  json.dump(camcollections, f)
+with open("data/camcollections.json", "w") as f:
+    json.dump(camcollections, f)
 
 # read the json file
-with open("data/camcollections.json","r") as f:
-  camcollections = json.load(f)
+with open("data/camcollections.json", "r") as f:
+    camcollections = json.load(f)
 
-pprint.pprint(camcollections['data'][0]['creators'])
+# %%
+pprint.pprint(camcollections["data"][0]["creators"])
 
 # Write msgpack file
 with open("data/camcollections.msgpack", "wb") as outfile:
@@ -36,5 +41,5 @@ with open("data/camcollections.msgpack", "rb") as data_file:
 
 camcollections = msgpack.unpackb(msgbytes)
 
-pprint.pprint(camcollections['data'][0]['creators'])
-
+# %%
+pprint.pprint(camcollections["data"][0]["creators"])

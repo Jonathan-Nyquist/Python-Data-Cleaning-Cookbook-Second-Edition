@@ -25,6 +25,7 @@ landtemps = pd.read_csv(
     parse_dates=[["month", "year"]],
 )
 
+# %%
 type(landtemps)
 
 # %%
@@ -51,6 +52,7 @@ landtemps.isnull().sum()
 # %%
 # remove rows with missing values
 landtemps.dropna(subset=["avgtemp"], inplace=True)
+# %%
 landtemps.shape
 
 # %%
@@ -83,4 +85,5 @@ landtemps = pd.read_csv(
     },
 )
 
+# %%
 landtemps.info()
